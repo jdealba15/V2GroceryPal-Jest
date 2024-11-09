@@ -18,7 +18,7 @@ it('should make a fetch POST request with the correct options', async () => {
     const url = 'http://localhost:3000/';
     const response = await fetchItems(url, shoppingList);
     
-    // await fetchItems();
+    await fetchItems();
 
     expect(fetch).toHaveBeenCalledTimes(1);
     expect(fetch).toHaveBeenCalledWith(url, {
