@@ -1,24 +1,15 @@
 import { fetchItems } from './dynamic-shopping-list-main/script.js';
 
-// global.fetch = jest.fn(() =>
-//     Promise.resolve({
-//         json: () => Promise.resolve({ success: true }),
-//     })
-// );
+global.fetch = jest.fn().mockResolvedValue({
+    ok: true,
+    json: jest.fn().mockResolvedValue({
+        message: {
+            content: JSON.stringify([{ item: 'bread', category: 'Bakery' }])
+        }
+    })
+});
 
-// beforeEach(() => {
-//     jest.clearAllMocks();
-// });
- 
 beforeEach(() => {
-    global.fetch = jest.fn().mockResolvedValue({
-        ok: true,
-        json: jest.fn().mockResolvedValue({
-            message: {
-                content: JSON.stringify([{ item: 'bread', category: 'Bakery' }])
-            }
-        })
-    });
     jest.clearAllMocks();
 });
 
