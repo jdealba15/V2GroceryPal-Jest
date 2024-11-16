@@ -155,6 +155,9 @@ async function fetchItems() {
         itemList.innerHTML = '';
 
         renderItems(content);
+
+        return true
+        
     } catch (error) {
         console.error('Error fetching items:', error);
     }
@@ -188,4 +191,4 @@ function renderItems(content) {
     });
 }
 
-export { fetchItems, renderItems };
+export { fetchItems, renderItems,  };
